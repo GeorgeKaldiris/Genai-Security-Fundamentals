@@ -6,6 +6,26 @@ The goal of this project is to understand and explain the main security risks of
 
 This repository is part of my learning path toward junior Cyber AI / AI Security roles.
 
+## Repository structure
+
+```text
+Genai-Security-Fundamentals/
+│
+├── README.md
+│
+├── docs/
+│   ├── 01-prompt-injection.md
+│   ├── 02-sensitive-data-disclosure.md
+│   ├── 03-improper-output-handling.md
+│   ├── 04-ai-governance.md
+│   ├── 05-data-and-model-poisoning.md
+│   ├── 06-supply-chain-risks.md
+│   └── 07-how-to-secure-a-company-genai-tool.md
+│
+└── examples/
+    └── mask_logs_example.py
+```
+
 ## Topics covered
 
 ### 1. Prompt Injection
@@ -24,7 +44,7 @@ docs/01-prompt-injection.md
 
 Sensitive data disclosure happens when private, confidential, or protected information enters or exits a GenAI system in an unsafe way.
 
-This topic covers risks related to personal data, raw logs, API keys, tokens, credentials, confidential business documents, and internal system information.
+This topic covers risks related to personal data, raw logs, API keys, tokens, credentials, confidential business documents, source code, and internal system information.
 
 File:
 
@@ -80,6 +100,20 @@ File:
 docs/06-supply-chain-risks.md
 ```
 
+### 7. How to Secure a Company GenAI Tool
+
+This note combines the previous topics into one practical scenario.
+
+It explains how to secure an internal company GenAI assistant that uses corporate data, documents, logs, APIs, or RAG knowledge bases.
+
+It covers access control, data masking, input and output validation, RAG security, least privilege, monitoring, human approval, supply chain review, and AI Governance.
+
+File:
+
+```text
+docs/07-how-to-secure-a-company-genai-tool.md
+```
+
 ## Practical example
 
 The repository also includes a simple Python example that demonstrates basic masking of sensitive data before using logs in a GenAI workflow.
@@ -99,6 +133,22 @@ examples/mask_logs_example.py
 
 This is not a production-ready Data Loss Prevention solution. It is an educational example that shows the idea that raw logs should not be sent directly to an LLM without masking, filtering, or data minimization.
 
+## How to run the Python example
+
+```bash
+python examples/mask_logs_example.py
+```
+
+Expected idea:
+
+```text
+Raw log:
+User john@example.com failed login from 192.168.1.25 with Authorization: Bearer abc123.secret.token and api_key=sk_test_12345
+
+Masked log:
+User [EMAIL_MASKED] failed login from [IP_MASKED] with Authorization: Bearer [TOKEN_MASKED] and api_key=[API_KEY_MASKED]
+```
+
 ## Why this matters
 
 GenAI tools can improve productivity, automate security workflows, support SOC analysts, summarize logs, assist with phishing analysis, and help organizations work faster.
@@ -116,8 +166,15 @@ The most important lessons from this project are:
 * Raw logs and sensitive company data should not be sent to LLMs without masking or controls.
 * GenAI tools should follow least privilege and role-based access control.
 * RAG systems should not blindly trust retrieved documents.
-* Third-party models, datasets, and libraries should be verified before use.
+* Third-party models, datasets, libraries, APIs, and cloud services should be verified before use.
+* Data quality and model integrity are important security concerns.
 * AI Governance is needed to define rules, responsibilities, monitoring, and accountability.
+
+## Interview summary
+
+A short way to explain this project:
+
+I created this repository to build foundational knowledge in GenAI Security. I studied key risks from the OWASP Top 10 for LLM Applications, including prompt injection, sensitive data disclosure, improper output handling, data and model poisoning, and supply chain risks. I also added AI Governance notes and a practical Python example that demonstrates basic masking of sensitive log data before using logs in a GenAI workflow.
 
 ## References
 
