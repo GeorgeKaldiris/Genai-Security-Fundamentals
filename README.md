@@ -21,6 +21,7 @@ Genai-Security-Fundamentals/
 │   ├── 05-data-and-model-poisoning.md
 │   ├── 06-supply-chain-risks.md
 │   └── 07-how-to-secure-a-company-genai-tool.md
+│   ├── 08-system-prompt-leakage.md
 │
 └── examples/
     └── mask_logs_example.py
@@ -113,7 +114,14 @@ File:
 ```text
 docs/07-how-to-secure-a-company-genai-tool.md
 ```
+### 8. System Prompt Leakage
 
+System prompt leakage happens when the internal instructions used to guide an LLM are exposed. The main risk is not only that the prompt is revealed, but that it may contain secrets, internal rules, permissions or sensitive implementation details.
+
+File:
+
+```text
+docs/08-system-prompt-leakage.md
 ## Practical example
 
 The repository also includes a simple Python example that demonstrates basic masking of sensitive data before using logs in a GenAI workflow.
