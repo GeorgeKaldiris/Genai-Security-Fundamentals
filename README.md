@@ -122,6 +122,7 @@ File:
 
 ```text
 docs/08-system-prompt-leakage.md
+```
 ## Practical example
 
 The repository also includes a simple Python example that demonstrates basic masking of sensitive data before using logs in a GenAI workflow.
